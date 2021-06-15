@@ -4,6 +4,21 @@ This is stand alone AuthorizationServer.It does require Db Repo and userdetailse
 It uses the private key and creates token and the creates signature.
 
 
+#########Password Grant Flow######
+
+
+Resource server/Client is running on 9091
+
+and autherzationserver running on 9092
+
+'http://localhost:9092/oauth/token' with postbody with grant_type as password is sent.
+
+The password body contains urlencodedbody params of usename,password of the user,granttype,scope
+
+Client recives the token and client extracts the user details and finally fetches the request,if his role permits.
+The rolechecking happens in ResourceWebConfig only,but Authorizaton happens in AuthorizationServer.
+
+
 
 Sample Request for getting Token
 
